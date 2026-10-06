@@ -43,7 +43,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#admin">Admin</a>
+                            <a class="nav-link" href="/admin/">Admin</a>
                         </li>
 
                         <li class="nav-item">
@@ -59,7 +59,21 @@
 
     <p>Bienvenido a mi blog.</p>
     <footer id="contacto">
+        {% for post in posts %}
 
+        <div class="post">
+            <h2>{{ post.titulo }}</h2>
+
+            <p>{{ post.contenido }}</p>
+
+            <small>{{ post.fecha }}</small>
+        </div>
+
+        {% empty %}
+
+        <p>No hay publicaciones todavía.</p>
+
+        {% endfor %}
         <div class="container">
 
             <div class="redes_der">
