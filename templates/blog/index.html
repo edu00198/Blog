@@ -1,120 +1,95 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% load static %}
 
-    <title>Mi Blog</title>
 
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog</title>
-    <link rel="icon" type="image/png" href="{% static 'assets/imagen_frente.png' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/blog/styles.css' %}">
-</head>
+{% block title %}
+Mi Blog
+{% endblock %}
 
-<body>
-<div id="arriba"></div>
 
-    <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-custom">
+{% block extra_css %}
 
-                <button class="navbar-toggler" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                    <button id="theme-toggle" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
+<link rel="stylesheet"
+      href="{% static 'css/blog/styles.css' %}">
 
-                <div class="collapse navbar-collapse" id="menu">
+{% endblock %}
 
-                    <!-- Links centrados -->
-                    <ul class="navbar-nav mx-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog' %}">Inicio</a>
-                        </li>
+{% block navbar %}
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/">Admin</a>
-                        </li>
+<ul class="navbar-nav mx-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'portfolio' %}">Portfolio Web</a>
-                        </li>
+    <li class="nav-item">
 
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+        <a class="nav-link"
+           href="{% url 'blog' %}">
+
+            Inicio
+
+        </a>
+
+    </li>
+
+
+    <li class="nav-item">
+
+        <a class="nav-link"
+           href="/admin/">
+
+            Admin
+
+        </a>
+
+    </li>
+
+
+    <li class="nav-item">
+
+        <a class="nav-link"
+           href="{% url 'portfolio' %}">
+
+            Portfolio Web
+
+        </a>
+
+    </li>
+
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<main class="container">
+
     <h1>Mi Blog</h1>
 
     <p>Bienvenido a mi blog.</p>
-    <footer id="contacto">
-        {% for post in posts %}
 
-        <div class="post">
+
+    {% for post in posts %}
+
+        <article class="post">
+
             <h2>{{ post.titulo }}</h2>
 
             <p>{{ post.contenido }}</p>
 
-            <small>{{ post.fecha }}</small>
-        </div>
+            <small>
+                {{ post.fecha }}
+            </small>
 
-        {% empty %}
+        </article>
 
-        <p>No hay publicaciones todavía.</p>
+    {% empty %}
 
-        {% endfor %}
-        <div class="container">
+        <p>
+            No hay publicaciones todavía.
+        </p>
 
-            <div class="redes_der">
-                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
+    {% endfor %}
 
-                <a href="https://github.com/edu00198" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+</main>
 
-                <a href="https://ar.linkedin.com/" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-
-            </div>
-            <p class="full_izq">© 2026 De Turris, All rights reserved .</p>
-
-            <a href="#arriba" class="boton-arriba">
-                <i class="fa-solid fa-circle-up"></i>
-            </a>
-        
-        </div>
-
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const boton = document.getElementById("theme-toggle");
-        const html = document.documentElement;
-
-        boton.addEventListener("click", () => {
-            const temaActual = html.getAttribute("data-bs-theme");
-
-            if (temaActual === "dark") {
-                html.setAttribute("data-bs-theme", "light");
-                boton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            } else {
-                html.setAttribute("data-bs-theme", "dark");
-                boton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            }
-        });
-    </script>
-</body>
-</html>
+{% endblock %}

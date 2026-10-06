@@ -1,110 +1,4 @@
-:root,
-[data-bs-theme="light"] {
-    --bg: #F0F0E8;
-    --text: #111111;
-    --card: #F3F3F3;
-
-    --header: #F0F0E8;
-    --navbar: #FFFFFF;
-    --nav-text: #3B322C;
-    --subtitulo: #6B625B;
-    --borde: #212529;
-    --iconos: #3B322C;
-    --accent: #B08D57;
-}
-
-[data-bs-theme="dark"] {
-    --bg: #111111;
-    --text: #FFFFFF;
-    --card: #1B1B1B;
-
-    --header: #111111;
-    --navbar: #1D1D1D;
-    --nav-text: #FFFFFF;
-    --subtitulo: #B8B0A8;
-    --borde: #444444;
-    --iconos: #FFFFFF;
-}
-
-body {
-    background-color: var(--bg);
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    color: var(--text);
-}
-.card{
-    background: var(--card);
-}
-
-/* FUENTE DE TEXTO */
-
-.btn{
-    font-weight: 600;
-}
-
-h2, h3{
-    font-weight: 700;
-    text-align: center;
-}
-h2 {
-    margin-bottom: 20px;
-
-}
-
-.gracias{
-    padding-top: 50px;
-}
-
-.nombre-principal{
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 7rem;
-    letter-spacing: 6px;
-    line-height: 0.9;
-    color: var(--text);
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-}
-
-.izquierda {
-    text-align: left;
-    padding-left: 80px;
-}
-.medio{
-    text-align: center;
-    padding-left: 225px;
-}
-
-/* HEADER */
-
-header {
-    padding: 20px 0;
-
-}
-
-.navbar-custom {
-    background-color: var(--navbar);
-    border-radius: 18px;
-    padding: 15px;
-}
-
-.nav-link {
-    font-weight: 500;
-    color: var(--nav-text);
-    margin: 0 12px;
-    transition: 0.3s;
-}
-
-.nav-link:hover,
-.redes a:hover {
-    color: var(--accent);
-}
-
 /* SECCIONES */
-
 section {
     padding: 50px 0;
 }
@@ -114,16 +8,23 @@ section + section {
     padding-top: 120px;
 }
 
-.icono-tema{
-    filter: brightness(0);
+
+/* TITULO PRINCIPAL */
+.nombre-principal {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7rem;
+    letter-spacing: 6px;
+    line-height: 0.9;
+    color: var(--text);
 }
 
-[data-bs-theme="dark"] .icono-tema {
-    filter: brightness(0) invert(1);
+.gracias {
+    padding-top: 50px;
 }
+
+
 /* HERO */
-
-.hero{
+.hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -131,62 +32,42 @@ section + section {
     padding: 40px 0 80px;
 }
 
-.hero-texto{
+.hero-texto {
     flex: 1;
 }
 
-
-.subtitulo{
+.subtitulo {
     margin-top: 20px;
     font-size: 1.1rem;
     color: var(--subtitulo);
 }
 
-.foto{
+.izquierda {
+    text-align: left;
+    padding-left: 80px;
+}
+
+.foto {
     flex-shrink: 0;
 }
 
-/* REDES */
 
-.redes {
-    display: flex;
-    justify-content: left;
-    gap: 20px;
-    padding-left: 150px;
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-.redes_der {
-    display: flex;
-    justify-content: right;
-    gap: 20px;
-    font-size: 52px;
-    margin: 20px 0;
-}
-
-.redes a, .redes_der a{
-    color: var(--iconos);
-    transition: 0.3s;
-}
-
-
-/* SOBRE MI */
-
+/* FOTO */
 .mi-foto {
     width: 400px;
     margin-top: -80px;
     margin-right: 100px;
     border-radius: 10px;
-
 }
 
-.texto-sobre-mi{
+
+/* SOBRE MI */
+.texto-sobre-mi {
     max-width: 700px;
-
 }
 
-/* Botones GitHub-PDF-Blog */
+
+/* BOTONES */
 .btn-github,
 .btn-pdf {
     display: inline-flex;
@@ -201,8 +82,8 @@ section + section {
 
 .btn-github {
     color: white;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .25);
 }
 
 .btn-pdf {
@@ -273,8 +154,17 @@ section + section {
 }
 
 
-/* PROYECTOS */
+/* MYSQL */
+.icono-tema {
+    filter: brightness(0);
+}
 
+[data-bs-theme="dark"] .icono-tema {
+    filter: brightness(0) invert(1);
+}
+
+
+/* PROYECTOS */
 .proyectos-grid {
     width: 100%;
     max-width: 1000px;
@@ -287,8 +177,6 @@ section + section {
     background: #111;
 }
 
-/* Imagen */
-
 .proyectos-grid .carousel-item {
     position: relative;
 }
@@ -300,12 +188,13 @@ section + section {
     display: block;
 }
 
-/* Degradado de proyectos */
 
+/* DEGRADADO */
 .proyectos-grid .carousel-item::after {
     content: "";
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.92) 0%,
@@ -313,14 +202,16 @@ section + section {
         rgba(0, 0, 0, 0.15) 55%,
         transparent 75%
     );
+
     pointer-events: none;
 }
 
-/* Información */
 
+/* INFORMACION DEL PROYECTO */
 .proyecto-info {
     position: absolute;
     z-index: 2;
+
     left: 0;
     right: 0;
     bottom: 0;
@@ -342,19 +233,25 @@ section + section {
 
     font-size: 16px;
     line-height: 1.5;
+
     color: rgba(255, 255, 255, 0.85);
 }
 
-/* Flechas */
+.medio {
+    text-align: center;
+    padding-left: 225px;
+}
 
+
+/* FLECHAS */
 .proyectos-grid .carousel-control-prev,
 .proyectos-grid .carousel-control-next {
     z-index: 5;
     width: 8%;
 }
 
-/* Indicadores */
 
+/* INDICADORES */
 .proyectos-grid .carousel-indicators {
     z-index: 6;
 }
@@ -364,23 +261,4 @@ section + section {
     height: 9px;
     border-radius: 50%;
     border: none;
-}
-
-
-/* FOOTER */
-footer {
-    padding: 40px 0;
-    text-align: center;
-}
-.boton-arriba {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    color:var(--iconos);
-    font-size: 35px;
-}
-
-.full_izq {
-    text-align: left;
-    padding-left: 0px;
 }

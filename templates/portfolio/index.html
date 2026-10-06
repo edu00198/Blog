@@ -1,415 +1,486 @@
-<!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
-<head>
-    {% load static %}
+{% extends "base.html" %}
+{% load static %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo De Turris</title>
-    <link rel="icon" type="image/png" href="{% static 'assets/imagen_frente.png' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/portfolio/styles.css' %}">
-</head>
+{% block title %}
+Eduardo De Turris
+{% endblock %}
 
-<body>
-    <div id="arriba"></div>
+{% block extra_css %}
 
-    <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-custom">
+<link rel="stylesheet"
+      href="{% static 'css/portfolio/styles.css' %}">
 
-                <button class="navbar-toggler" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#menu">
-                    <span class="navbar-toggler-icon"></span>
+{% endblock %}
+
+{% block navbar %}
+
+<ul class="navbar-nav mx-auto">
+
+    <li class="nav-item">
+        <a class="nav-link" href="#sobre_mi">
+            Sobre mí
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#skills">
+            Skills
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#proyectos">
+            Proyectos
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#contacto">
+            Contacto
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog' %}">
+            Blog
+        </a>
+    </li>
+
+</ul>
+
+
+<button class="btn btn-dark btn-agenda"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAgenda">
+
+    Agendar reunión
+
+</button>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- CONTACTO -->
+
+<div class="modal fade"
+     id="modalAgenda"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modalAgendaLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered"
+         role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="modalAgendaLabel">
+
+                    Agendar una reunion
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar">
                 </button>
-                    <button id="theme-toggle" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
+            </div>
+            <form id="formAgenda">
 
-                <div class="collapse navbar-collapse" id="menu">
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
 
-                    <!-- Links centrados -->
-                    <ul class="navbar-nav mx-auto">
+                            <label for="nombre"
+                                   class="form-label">
+                                Nombre
+                            </label>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#sobre_mi">Sobre mí</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#proyectos">Proyectos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contacto">Contacto</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog' %}">Blog</a>
-                        </li>
-
-                    </ul>
-
-                    <!-- Botón a la derecha -->
-                    <button class="btn btn-dark btn-agenda"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalAgenda">
-                        Agendar reunión
-                    </button>
-
-
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- CONTACTO -->
-    <div class="modal fade" id="modalAgenda" tabindex="-1" role="dialog" aria-labelledby="modalAgendaLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-
-                <!-- Encabezado -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalAgendaLabel">
-                        Agendar una reunion
-                    </h5>
-
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Cerrar">
-                    </button>
-                </div>
-
-                <!-- Formulario Completo -->
-                <form id="formAgenda"> 
-                    <div class="modal-body">
-
-                        <div class="row mb-3">
-
-                            <div class="col-md-6">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text"
-                                        class="form-control"
-                                        id="nombre"
-                                        placeholder="Tu Nombre...">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="apellido" class="form-label">Apellido</label>
-                                <input type="text"
-                                    class="form-control"
-                                    id="apellido"
-                                    placeholder="Tu Apellido...">
-                            </div>
+                            <input type="text"
+                                   class="form-control"
+                                   id="nombre"
+                                   placeholder="Tu Nombre...">
                         </div>
+                        <div class="col-md-6">
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="ejemplo@gmail.com">
-                        </div>
+                            <label for="apellido"
+                                   class="form-label">
 
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control"
-                                    id="mensaje"
-                                    rows="4"
-                                    placeholder="Escribí tu consulta..."></textarea>
+                                Apellido
+
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="apellido"
+                                   placeholder="Tu Apellido...">
                         </div>
                     </div>
-                </form>
+                    <div class="mb-3">
 
-                <div class="modal-footer">
+                        <label for="email"
+                               class="form-label">
 
-                    <button type="button"
-                            class="btn btn-outline-secondary"
-                            data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
+                            Correo electrónico
 
-                    <button type="submit" class="btn btn-dark">
-                        Enviar
-                    </button>
+                        </label>
 
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               placeholder="ejemplo@gmail.com">
+                    </div>
+                    <div class="mb-3">
+
+                        <label for="mensaje"
+                               class="form-label">
+                            Mensaje
+                        </label>
+
+                        <textarea class="form-control"
+                                  id="mensaje"
+                                  rows="4"
+                                  placeholder="Escribí tu consulta..."></textarea>
+                    </div>
                 </div>
+            </form>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button type="submit"
+                        class="btn btn-dark">
+
+                    Enviar
+
+                </button>
             </div>
         </div>
     </div>
-
-    <main class="container">
-        <section class="hero">
-            <!--PARTE DEL INICIO-->
-            <div class="hero-texto">
-                <h1 class="nombre-principal">
-                    Eduardo <br>
-                    De Turris
-                </h1>
-
-                <p class="subtitulo izquierda">
-                    ·Estudiante de programación  
-                    <div class="redes">
-                            <a href="https://instagram.com/eduudeturris" target="_blank">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-
-                            <a href="https://github.com/edu00198" target="_blank">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-
-                            <a href="https://ar.linkedin.com/" target="_blank">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a>
-
-                    </div>
-            </div>
-            <div>
-                <img src="{% static 'assets/imagen_frente.png' %}" class="mi-foto" alt="imagen principal">
-            </div>
-            
-        </section>
-        <section id="sobre_mi">
-            <div >
-                <h2>SOBRE MI</h2>
-
-                <p style="text-align: justify;" class="texto-sobre-mi">
-                    Soy Eduardo De Turris, estudiante de programación y desarrollador en formación, interesado principalmente en el desarrollo web y la creación de aplicaciones.
-                    Durante mi formación fui aprendiendo distintas tecnologías y aplicándolas en proyectos propios. Actualmente tengo conocimientos en HTML, CSS, Bootstrap, Python y SQL, y continúo incorporando nuevas herramientas y conceptos mientras sigo aprendiendo.
-                    Me interesa entender cómo funcionan las cosas, resolver problemas y aprender a través de cada proyecto que realizo. Mi objetivo es seguir desarrollando mis conocimientos y mejorar poco a poco como programador.
-                </p>
-                <a href="{% static 'assets/CV_Eduardo_De_Turris.pdf' %}"
-                target="_blank"
-                class="btn-pdf">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    Ver CV
-                </a>
-            </div>
-
-        </section>
-
-        <section id="skills">
-            <h2>SKILLS</h2>
-            <!-- AGREGADO DE CARDS-->
-            <div class="skills-container">
-                <div class="skill-card">
-                    <i class="fa-brands fa-python"></i>
-                    <h3>Python</h3> 
-                    <p>Programacion y desarrollo</p> 
-                </div>
-
-                <div class="skill-card">
-                    <i class="fa-brands fa-html5"></i>
-                    <h3>HTML</h3> 
-                    <p>Desarrollo web</p> 
-                </div>
-
-                <div class="skill-card">
-                    <i class="fa-brands fa-css3"></i>
-                    <h3>CSS</h3> 
-                    <p>Estilos web</p> 
-                </div>
-
-                <div class="skill-card">
-                    <img src="{% static 'assets/MySQL.png' %}" width="85" alt="Icono My SQL" class="icono-tema">
-                    <h3>My SQL </h3> 
-                    <p>Gestion de datos</p> 
-                </div>
-
-                <div class="skill-card">
-                    <i class="fa-brands fa-bootstrap"></i>
-                    <h3>Bootstrap </h3> 
-                    <p>Diseño responsivo</p> 
-                </div>
-
-            </div>
-
-        </section>
+</div>
 
 
-        <h2>PROYECTOS</h2>
+<main class="container">
 
-        <div class="proyectos-grid">
+    <section class="hero">
 
-            <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="hero-texto">
 
-                <!-- Indicadores -->
-                <div class="carousel-indicators">
+            <h1 class="nombre-principal">
 
-                    <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="0"
-                            class="active">
-                    </button>
+                Eduardo <br>
+                De Turris
 
-                    <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="1">
-                    </button>
+            </h1>
 
-                    <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="2">
-                    </button>
+            <p class="subtitulo izquierda">
+                ·Estudiante de programación
+            </p>
+            <div class="redes">
 
-                </div>
+                <a href="https://instagram.com/eduudeturris"
+                   target="_blank">
 
-                <!-- Proyectos -->
-                <div class="carousel-inner" id="proyectos">
-                    
-                    <!-- Proyecto 1 -->
-                    <div class="carousel-item active">
+                    <i class="fa-brands fa-instagram"></i>
 
-                        <img src="{% static 'assets/escape.png' %}"
-                            class="d-block w-100"
-                            alt="Escape de la Mazmorra">
-
-                        <div class="proyecto-info">
-
-                            <h3>Escape de la Mazmorra</h3>
-
-                            <p class="medio">
-                                Videojuego desarrollado en Python utilizando Pygame.
-                            </p>
-
-                            <a href="https://github.com/edu00198/Juego-escape"
-                            target="_blank"
-                            class="btn-github">
-                                <i class="fa-brands fa-github"></i>
-                                Ver en GitHub
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 2 -->
-                    <div class="carousel-item">
-
-                        <img src="{% static 'assets/reproductor.jpg' %}"
-                            class="d-block w-100"
-                            alt="Reproductor de música">
-
-                        <div class="proyecto-info">
-
-                            <h3>Alonso Music</h3>
-
-                            <p class="medio">
-                                Aplicación de escritorio desarrollada con Python,
-                                utilizando Tkinter.
-                            </p>
-
-                            <a href="https://github.com/edu00198/TP-Reproducto-musica"
-                            target="_blank"
-                            class="btn-github">
-                                <i class="fa-brands fa-github"></i>
-                                Ver en GitHub
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 3 -->
-                    <div class="carousel-item">
-
-                        <img src="{% static 'assets/pokemon.png' %}"
-                            class="d-block w-100"
-                            alt="Pokedex">
-
-                        <div class="proyecto-info">
-                            <h3>Pokedex</h3>
-                            <p class="medio">
-                                Proyecto desarrollado en Python utilizando
-                                estructuras de datos 
-                            </p >
-
-                            <a href="https://github.com/edu00198/TP-2"
-                            target="_blank"
-                            class="btn-github">
-                                <i class="fa-brands fa-github"></i>
-                                Ver en GitHub
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Flecha izquierda -->
-                <button class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-
-                    <span class="carousel-control-prev-icon"></span>
-
-                </button>
-
-                <!-- Flecha derecha -->
-                <button class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-
-                    <span class="carousel-control-next-icon"></span>
-
-                </button>
-
-            </div>
-            <h4 class="gracias"> GRACIAS POR VER!</h4>
-        </div>
-
-    </main>
-
-    <footer id="contacto">
-
-        <div class="container">
-
-            <div class="redes_der">
-                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">
-                    <i class="fa-solid fa-envelope"></i>
                 </a>
 
-                <a href="https://github.com/edu00198" target="_blank">
+                <a href="https://github.com/edu00198"
+                   target="_blank">
+
                     <i class="fa-brands fa-github"></i>
+
                 </a>
 
-                <a href="https://ar.linkedin.com/" target="_blank">
+                <a href="https://ar.linkedin.com/"
+                   target="_blank">
+
                     <i class="fa-brands fa-linkedin"></i>
+
                 </a>
-
             </div>
-            <p class="full_izq">© 2026 De Turris, All rights reserved .</p>
+        </div>
+        <div>
 
-            <a href="#arriba" class="boton-arriba">
-                <i class="fa-solid fa-circle-up"></i>
-            </a>
-        
+            <img src="{% static 'assets/imagen_frente.png' %}"
+                 class="mi-foto"
+                 alt="imagen principal">
+
         </div>
 
-    
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const boton = document.getElementById("theme-toggle");
-        const html = document.documentElement;
+    </section>
 
-        boton.addEventListener("click", () => {
-            const temaActual = html.getAttribute("data-bs-theme");
 
-            if (temaActual === "dark") {
-                html.setAttribute("data-bs-theme", "light");
-                boton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            } else {
-                html.setAttribute("data-bs-theme", "dark");
-                boton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            }
-        });
-    </script>
-</body>
-</html>
+    <section id="sobre_mi">
+
+        <div>
+
+            <h2>SOBRE MI</h2>
+
+            <p style="text-align: justify;"
+               class="texto-sobre-mi">
+
+                Soy Eduardo De Turris, estudiante de programación y desarrollador en formación, interesado principalmente en el desarrollo web y la creación de aplicaciones.
+
+                Durante mi formación fui aprendiendo distintas tecnologías y aplicándolas en proyectos propios. Actualmente tengo conocimientos en HTML, CSS, Bootstrap, Python y SQL, y continúo incorporando nuevas herramientas y conceptos mientras sigo aprendiendo.
+
+                Me interesa entender cómo funcionan las cosas, resolver problemas y aprender a través de cada proyecto que realizo. Mi objetivo es seguir desarrollando mis conocimientos y mejorar poco a poco como programador.
+
+            </p>
+
+
+            <a href="{% static 'assets/CV_Eduardo_De_Turris.pdf' %}"
+               target="_blank"
+               class="btn-pdf">
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Ver CV
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section id="skills">
+
+        <h2>SKILLS</h2>
+
+        <div class="skills-container">
+
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-python"></i>
+
+                <h3>Python</h3>
+
+                <p>Programacion y desarrollo</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-html5"></i>
+
+                <h3>HTML</h3>
+
+                <p>Desarrollo web</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-css3"></i>
+
+                <h3>CSS</h3>
+
+                <p>Estilos web</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <img src="{% static 'assets/MySQL.png' %}"
+                     width="85"
+                     alt="Icono My SQL"
+                     class="icono-tema">
+
+                <h3>My SQL</h3>
+
+                <p>Gestion de datos</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-bootstrap"></i>
+
+                <h3>Bootstrap</h3>
+
+                <p>Diseño responsivo</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <h2>PROYECTOS</h2>
+
+
+    <div class="proyectos-grid">
+
+        <div id="carouselExampleIndicators"
+             class="carousel slide">
+
+
+            <div class="carousel-indicators">
+
+                <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="0"
+                        class="active">
+                </button>
+
+                <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="1">
+                </button>
+
+                <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="2">
+                </button>
+
+            </div>
+
+
+            <div class="carousel-inner"
+                 id="proyectos">
+
+
+                <div class="carousel-item active">
+
+                    <img src="{% static 'assets/escape.png' %}"
+                         class="d-block w-100"
+                         alt="Escape de la Mazmorra">
+
+
+                    <div class="proyecto-info">
+
+                        <h3>Escape de la Mazmorra</h3>
+
+                        <p class="medio">
+                            Videojuego desarrollado en Python utilizando Pygame.
+                        </p>
+
+                        <a href="https://github.com/edu00198/Juego-escape"
+                           target="_blank"
+                           class="btn-github">
+
+                            <i class="fa-brands fa-github"></i>
+
+                            Ver en GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'assets/reproductor.jpg' %}"
+                         class="d-block w-100"
+                         alt="Reproductor de música">
+
+
+                    <div class="proyecto-info">
+
+                        <h3>Alonso Music</h3>
+
+                        <p class="medio">
+
+                            Aplicación de escritorio desarrollada con Python,
+                            utilizando Tkinter.
+
+                        </p>
+
+                        <a href="https://github.com/edu00198/TP-Reproducto-musica"
+                           target="_blank"
+                           class="btn-github">
+
+                            <i class="fa-brands fa-github"></i>
+
+                            Ver en GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'assets/pokemon.png' %}"
+                         class="d-block w-100"
+                         alt="Pokedex">
+
+
+                    <div class="proyecto-info">
+
+                        <h3>Pokedex</h3>
+
+                        <p class="medio">
+
+                            Proyecto desarrollado en Python utilizando
+                            estructuras de datos
+
+                        </p>
+
+
+                        <a href="https://github.com/edu00198/TP-2"
+                           target="_blank"
+                           class="btn-github">
+
+                            <i class="fa-brands fa-github"></i>
+
+                            Ver en GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </div>
+
+
+        <h4 class="gracias">
+            GRACIAS POR VER!
+        </h4>
+
+    </div>
+
+</main>
+
+{% endblock %}

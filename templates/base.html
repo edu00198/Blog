@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Eduardo De Turris{% endblock %}</title>
+
+    <link rel="icon" type="image/png" href="{% static 'assets/imagen_frente.png' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <div id="arriba"></div>
+
+    <header>
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-custom">
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <button id="theme-toggle"
+                        class="btn btn-outline-secondary">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    {% block navbar %}
+                    {% endblock %}
+
+                </div>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <footer id="contacto">
+
+        <div class="container">
+
+            <div class="redes_der">
+
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                   target="_blank">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </a>
+
+                <a href="https://github.com/edu00198"
+                   target="_blank">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+                <a href="https://ar.linkedin.com/"
+                   target="_blank">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </a>
+
+            </div>
+
+            <p class="full_izq">
+                © 2026 De Turris, All rights reserved.
+            </p>
+
+            <a href="#arriba" class="boton-arriba">
+
+                <i class="fa-solid fa-circle-up"></i>
+
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        const boton = document.getElementById("theme-toggle");
+        const html = document.documentElement;
+
+        boton.addEventListener("click", () => {
+
+            const temaActual = html.getAttribute("data-bs-theme");
+
+            if (temaActual === "dark") {
+
+                html.setAttribute("data-bs-theme", "light");
+
+                boton.innerHTML =
+                    '<i class="fa-solid fa-moon"></i>';
+
+            } else {
+
+                html.setAttribute("data-bs-theme", "dark");
+
+                boton.innerHTML =
+                    '<i class="fa-solid fa-sun"></i>';
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
