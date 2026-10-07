@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', portfolio_views.portfolio, name='portfolio'),
     path('blog/', blog_views.blog, name='blog'),
+    path('blog/<int:post_id>/', blog_views.detalle_post, name='detalle_post'),
 ]
 
 if settings.DEBUG:

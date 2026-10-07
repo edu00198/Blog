@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ post.titulo }}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+{% endblock %}
+
+{% block navbar %}
+
+<ul class="navbar-nav mx-auto">
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog' %}">Inicio</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/">Admin</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'portfolio' %}">Portfolio Web</a>
+    </li>
+
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <article class="post-detalle">
+
+        <h1 class="nombre-principal">
+            {{ post.titulo }}
+        </h1>
+
+        <small class="fecha-post">
+            {{ post.fecha|date:"d/m/Y H:i" }}
+        </small>
+
+        {% if post.imagen %}
+            <img src="{{ post.imagen.url }}"
+                 alt="{{ post.titulo }}"
+                 class="imagen-detalle">
+        {% endif %}
+
+        <div class="contenido-post">
+            {{ post.contenido|linebreaks }}
+        </div>
+
+        <a href="{% url 'blog' %}" class="btn-post">
+            ← Volver al blog
+        </a>
+
+    </article>
+
+</main>
+
+{% endblock %}

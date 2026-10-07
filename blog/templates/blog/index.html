@@ -45,21 +45,36 @@ Mi Blog
 
         <article class="post">
 
-            <h2>{{ post.titulo }}</h2>
+            {% if post.imagen %}
+                <img src="{{ post.imagen.url }}"
+                    alt="{{ post.titulo }}"
+                    class="post-imagen">
+            {% endif %}
 
-            <p>{{ post.contenido }}</p>
+            <div class="post-contenido">
 
-            <small>
-                {{ post.fecha }}
-            </small>
+                <h2>{{ post.titulo }}</h2>
+
+                <small>
+                    {{ post.fecha|date:"d/m/Y" }}
+                </small>
+
+                <p>
+                    {{ post.contenido|truncatewords:30 }}
+                </p>
+
+                <a href="{% url 'detalle_post' post.id %}"
+                class="btn-post">
+                    Leer publicación
+                </a>
+
+            </div>
 
         </article>
 
     {% empty %}
 
-        <p>
-            No hay publicaciones todavía.
-        </p>
+        <p>No hay publicaciones todavía.</p>
 
     {% endfor %}
 
