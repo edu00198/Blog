@@ -10,13 +10,6 @@ section + section {
 
 
 /* TITULO PRINCIPAL */
-.nombre-principal {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 7rem;
-    letter-spacing: 6px;
-    line-height: 0.9;
-    color: var(--text);
-}
 
 .gracias {
     padding-top: 50px;

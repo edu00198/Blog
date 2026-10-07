@@ -7,8 +7,7 @@ Eduardo De Turris
 
 {% block extra_css %}
 
-<link rel="stylesheet"
-      href="{% static 'css/portfolio/styles.css' %}">
+<link rel="stylesheet" href="{% static '.../../portfolio/styles.css' %}">
 
 {% endblock %}
 
@@ -17,48 +16,32 @@ Eduardo De Turris
 <ul class="navbar-nav mx-auto">
 
     <li class="nav-item">
-        <a class="nav-link" href="#sobre_mi">
-            Sobre mí
-        </a>
+        <a class="nav-link" href="#sobre_mi">Sobre mí</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#skills">
-            Skills
-        </a>
+        <a class="nav-link" href="#skills">Skills</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#proyectos">
-            Proyectos
-        </a>
+        <a class="nav-link" href="#proyectos">Proyectos</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#contacto">
-            Contacto
-        </a>
+        <a class="nav-link" href="#contacto">Contacto</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'blog' %}">
-            Blog
-        </a>
+        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
     </li>
 
 </ul>
 
 
-<button class="btn btn-dark btn-agenda"
-        data-bs-toggle="modal"
-        data-bs-target="#modalAgenda">
-
-    Agendar reunión
-
+<button class="btn btn-dark btn-agenda" data-bs-toggle="modal" data-bs-target="#modalAgenda">Agendar reunión
 </button>
 
 {% endblock %}
-
 
 {% block content %}
 
@@ -76,11 +59,8 @@ Eduardo De Turris
 
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"
-                    id="modalAgendaLabel">
+                <h5 class="modal-title" id="modalAgendaLabel">Agendar una reunion</h5>
 
-                    Agendar una reunion
-                </h5>
                 <button type="button"
                         class="btn-close"
                         data-bs-dismiss="modal"
@@ -93,11 +73,7 @@ Eduardo De Turris
                     <div class="row mb-3">
                         <div class="col-md-6">
 
-                            <label for="nombre"
-                                   class="form-label">
-                                Nombre
-                            </label>
-
+                            <label for="nombre"class="form-label">Nombre</label>
                             <input type="text"
                                    class="form-control"
                                    id="nombre"
@@ -174,15 +150,10 @@ Eduardo De Turris
         <div class="hero-texto">
 
             <h1 class="nombre-principal">
-
-                Eduardo <br>
-                De Turris
-
+                Eduardo<br> De Turris
             </h1>
 
-            <p class="subtitulo izquierda">
-                ·Estudiante de programación
-            </p>
+            <p class="subtitulo izquierda">·Estudiante de programación</p>
             <div class="redes">
 
                 <a href="https://instagram.com/eduudeturris"
@@ -475,9 +446,9 @@ Eduardo De Turris
         </div>
 
 
-        <h4 class="gracias">
+        <h1 class="gracias">
             GRACIAS POR VER!
-        </h4>
+        </h1>
 
     </div>
 

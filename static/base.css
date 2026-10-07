@@ -3,7 +3,6 @@
     --bg: #F0F0E8;
     --text: #111111;
     --card: #F3F3F3;
-
     --header: #F0F0E8;
     --navbar: #FFFFFF;
     --nav-text: #3B322C;
@@ -12,11 +11,11 @@
     --iconos: #3B322C;
     --accent: #B08D57;
 }
+
 [data-bs-theme="dark"] {
     --bg: #111111;
     --text: #FFFFFF;
     --card: #1B1B1B;
-
     --header: #111111;
     --navbar: #1D1D1D;
     --nav-text: #FFFFFF;
@@ -25,8 +24,6 @@
     --iconos: #FFFFFF;
 }
 
-
-/* GENERAL */
 body {
     background-color: var(--bg);
     margin: 0;
@@ -58,8 +55,15 @@ p {
     text-align: center;
 }
 
+.nombre-principal {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7rem;
+    letter-spacing: 6px;
+    line-height: 0.9;
+    color: var(--text);
+    text-align: center;
+}
 
-/* HEADER */
 header {
     padding: 20px 0;
 }
@@ -82,8 +86,6 @@ header {
     color: var(--accent);
 }
 
-
-/* REDES */
 .redes {
     display: flex;
     justify-content: left;
@@ -107,8 +109,6 @@ header {
     transition: 0.3s;
 }
 
-
-/* FOOTER */
 footer {
     padding: 40px 0;
     text-align: center;
@@ -126,3 +126,4 @@ footer {
     text-align: left;
     padding-left: 0;
 }
+

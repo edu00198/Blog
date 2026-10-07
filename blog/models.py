@@ -4,6 +4,7 @@ from django.db import models
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
     contenido = models.TextField()
+    imagen = models.FileField(upload_to='archivos/', blank=True, null=True)
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
