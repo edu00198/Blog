@@ -14,7 +14,7 @@ Mi Blog
 
 
 {% block navbar %}
-
+<!--NAVBAR-->
 <ul class="navbar-nav mx-auto">
     <li class="nav-item">
         <a class="nav-link" href="{% url 'blog' %}">Inicio</a>
@@ -38,7 +38,7 @@ Mi Blog
     <h1 class="blog-principal">
         Mi Blog
     </h1>
-
+    <!--PARTE DE POST (TITULO Y FECHA)-->
     {% for post in posts %}
 
         <article class="post">
