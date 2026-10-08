@@ -61,7 +61,7 @@ p {
     letter-spacing: 6px;
     line-height: 0.9;
     color: var(--text);
-    text-align: center;
+    text-align: left;
 }
 
 header {

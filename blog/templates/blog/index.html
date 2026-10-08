@@ -16,7 +16,6 @@ Mi Blog
 {% block navbar %}
 
 <ul class="navbar-nav mx-auto">
-
     <li class="nav-item">
         <a class="nav-link" href="{% url 'blog' %}">Inicio</a>
     </li>
@@ -28,7 +27,6 @@ Mi Blog
     <li class="nav-item">
         <a class="nav-link" href="{% url 'portfolio' %}">Portfolio Web</a>
     </li>
-
 </ul>
 
 {% endblock %}
@@ -37,47 +35,32 @@ Mi Blog
 
 <main class="container">
 
-    <h1 class="nombre-principal">
+    <h1 class="blog-principal">
         Mi Blog
     </h1>
 
     {% for post in posts %}
 
         <article class="post">
-
-            {% if post.imagen %}
-                <img src="{{ post.imagen.url }}"
-                    alt="{{ post.titulo }}"
-                    class="post-imagen">
-            {% endif %}
-
             <div class="post-contenido">
+                <h2 class="nombre-post">
+                    <a href="{% url 'detalle_post' post.id %}">
+                        {{ post.titulo }}
+                    </a>
+                </h2>
 
-                <h2>{{ post.titulo }}</h2>
-
-                <small>
-                    {{ post.fecha|date:"d/m/Y" }}
-                </small>
-
-                <p>
-                    {{ post.contenido|truncatewords:30 }}
-                </p>
-
-                <a href="{% url 'detalle_post' post.id %}"
-                class="btn-post">
-                    Leer publicación
-                </a>
+                <h2 class="fecha-post">
+                    <a href="{% url 'detalle_post' post.id %}">
+                        Publicado el {{ post.fecha|date:"j \d\e F \d\e Y" }}
+                    </a>
+                </h2>
 
             </div>
-
         </article>
 
     {% empty %}
-
         <p>No hay publicaciones todavía.</p>
-
     {% endfor %}
 
 </main>
-
 {% endblock %}

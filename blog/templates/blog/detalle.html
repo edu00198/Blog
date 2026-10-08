@@ -39,9 +39,9 @@
             {{ post.titulo }}
         </h1>
 
-        <small class="fecha-post">
-            {{ post.fecha|date:"d/m/Y H:i" }}
-        </small>
+        <p class="fecha-post">
+            Publicado el {{ post.fecha|date:"d/m/Y" }}
+        </p>
 
         {% if post.imagen %}
             <img src="{{ post.imagen.url }}"
@@ -53,11 +53,89 @@
             {{ post.contenido|linebreaks }}
         </div>
 
+    </article>
+
+
+    <!-- COMENTARIOS -->
+
+    <section class="comentarios">
+
+        <h2>Comentarios</h2>
+
+        {% for comentario in comentarios %}
+
+            <div class="comentario">
+
+                <div class="comentario-cabecera">
+                    <strong>{{ comentario.nombre }}</strong>
+                    <small>
+                        {{ comentario.fecha|date:"d/m/Y H:i" }}
+                    </small>
+                </div>
+
+                <p>
+                    {{ comentario.contenido }}
+                </p>
+
+            </div>
+
+        {% empty %}
+
+            <p class="sin-comentarios">
+                Todavía no hay comentarios. Sé el primero en comentar.
+            </p>
+
+        {% endfor %}
+
+
+        <!-- FORMULARIO -->
+
+        <div class="formulario-comentario">
+
+            <h3>Dejá tu comentario</h3>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="contenido">Comentario</label>
+                    <textarea
+                        id="contenido"
+                        name="contenido"
+                        rows="5"
+                        placeholder="Escribí tu comentario..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn-post">
+                    Publicar comentario
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <div class="volver-blog">
+
         <a href="{% url 'blog' %}" class="btn-post">
             ← Volver al blog
         </a>
 
-    </article>
+    </div>
 
 </main>
 

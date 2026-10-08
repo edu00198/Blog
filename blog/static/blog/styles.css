@@ -1,0 +1,237 @@
+/* CONTENIDO DEL BLOG */
+
+main {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+main > h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 5rem;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+main > p {
+    color: var(--subtitulo);
+    margin-bottom: 50px;
+}
+
+.blog-principal {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7rem;
+    letter-spacing: 6px;
+    line-height: 0.9;
+    color: var(--text);
+    text-align: center;
+}
+
+
+/* POSTS */
+
+.post {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 18px 0 28px;
+    margin: 0;
+    border-top: 5px solid var(--borde);
+}
+
+.post h2 {
+    margin: 0 0 4px;
+}
+
+.post small {
+    color: var(--subtitulo);
+}
+
+.post-contenido {
+    padding: 0;
+}
+
+.post-contenido h2,
+.post-contenido p {
+    text-align: left;
+}
+
+.btn-post {
+    display: inline-block;
+    background: transparent;
+    color: var(--text);
+    padding: 0;
+    margin-top: 12px;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-post:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
+
+/* IMAGEN DEL DETALLE */
+
+.post-imagen {
+    display: none;
+}
+
+.imagen-detalle {
+    display: block;
+    width: 65%;
+    max-width: 600px;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 0 auto 40px;
+    border-radius: 15px;
+}
+
+
+/* DETALLE DEL POST */
+
+.post-detalle {
+    max-width: 900px;
+    margin: 60px auto 0;
+    padding: 40px;
+    background: var(--card);
+    border-radius: 20px;
+}
+
+.nombre-post {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    letter-spacing: 6px;
+    line-height: 0.9;
+    color: var(--text);
+    text-align: center;
+}
+
+.post-detalle .nombre-principal {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.fecha-post {
+    font-family: "Bebas Neue", sans-serif;
+    text-align: center;
+    color: var(--subtitulo);
+    margin-bottom: 35px;
+}
+
+.nombre-post a,
+.fecha-post a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nombre-post a:hover,
+.fecha-post a:hover {
+    color: #B08D57;
+}
+
+.contenido-post {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.contenido-post p {
+    margin-bottom: 20px;
+}
+
+
+/* COMENTARIOS */
+
+.comentarios {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background: var(--card);
+    border-radius: 20px;
+}
+
+.comentarios h2 {
+    margin-bottom: 30px;
+}
+
+.comentario {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.comentario-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comentario-cabecera small {
+    color: var(--subtitulo);
+}
+
+.comentario p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.sin-comentarios {
+    color: var(--subtitulo);
+}
+
+
+/* FORMULARIO */
+
+.formulario-comentario {
+    margin-top: 45px;
+}
+
+.formulario-comentario h3 {
+    margin-bottom: 25px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+
+/* VOLVER AL BLOG */
+
+.volver-blog {
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
