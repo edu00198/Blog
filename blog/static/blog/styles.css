@@ -1,9 +1,12 @@
-/* CONTENIDO DEL BLOG */
+/*CONTENIDO PRINCIPAL */
 
 main {
     padding-top: 60px;
     padding-bottom: 80px;
 }
+
+
+/* Título general */
 
 main > h1 {
     font-family: "Bebas Neue", sans-serif;
@@ -18,6 +21,9 @@ main > p {
     margin-bottom: 50px;
 }
 
+
+/*TITULO DEL BLOG*/
+
 .blog-principal {
     font-family: "Bebas Neue", sans-serif;
     font-size: 7rem;
@@ -25,18 +31,19 @@ main > p {
     line-height: 0.9;
     color: var(--text);
     text-align: center;
+    margin-bottom: 20px;
 }
 
 
-/* POSTS */
+/*POSTS*/
 
 .post {
     background: transparent;
     border: none;
+    border-top: 5px solid var(--borde);
     border-radius: 0;
     padding: 18px 0 28px;
     margin: 0;
-    border-top: 5px solid var(--borde);
 }
 
 .post h2 {
@@ -47,6 +54,9 @@ main > p {
     color: var(--subtitulo);
 }
 
+
+/* Contenido de cada post */
+
 .post-contenido {
     padding: 0;
 }
@@ -56,49 +66,51 @@ main > p {
     text-align: left;
 }
 
+
 .btn-post {
     display: inline-block;
     background: transparent;
     color: var(--text);
     padding: 0;
     margin-top: 12px;
+    border: none;
     border-radius: 0;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.2s;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .btn-post:hover {
     background: transparent;
     color: var(--accent);
-}
-
-
-/* IMAGEN DEL DETALLE */
-
-.post-imagen {
-    display: none;
-}
-
-.imagen-detalle {
-    display: block;
-    width: 65%;
-    max-width: 600px;
-    max-height: 400px;
-    object-fit: cover;
-    margin: 0 auto 40px;
-    border-radius: 15px;
+    transform: translateX(3px);
 }
 
 
 /* DETALLE DEL POST */
 
 .post-detalle {
-    max-width: 900px;
-    margin: 60px auto 0;
-    padding: 40px;
-    background: var(--card);
+    max-width: 1000px;
+    margin: 50px auto 0;
+    padding: 0;
     border-radius: 20px;
+
+}
+
+
+/*TÍTULO DEL POST*/
+
+.post-detalle .nombre-principal {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4.5rem;
+    letter-spacing: 4px;
+    line-height: 0.95;
+    color: var(--text);
+    text-align: left;
+    margin: 0 0 12px;
 }
 
 .nombre-post {
@@ -110,18 +122,20 @@ main > p {
     text-align: center;
 }
 
-.post-detalle .nombre-principal {
-    text-align: center;
-    font-size: 4rem;
-    margin-bottom: 10px;
-}
+
+/*FECHA*/
 
 .fecha-post {
     font-family: "Bebas Neue", sans-serif;
-    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-align: left;
     color: var(--subtitulo);
     margin-bottom: 35px;
 }
+
+
+/* Links dentro del título/fecha */
 
 .nombre-post a,
 .fecha-post a {
@@ -132,38 +146,97 @@ main > p {
 
 .nombre-post a:hover,
 .fecha-post a:hover {
-    color: #B08D57;
+    color: var(--accent);
 }
 
+
+/* IMAGEN DEL DETALLE */
+
+.imagen-detalle {
+    display: block;
+
+    width: 38%;
+    max-width: 380px;
+    height: 250px;
+
+    object-fit: cover;
+
+    float: right;
+
+    margin: 0 0 25px 40px;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL POST
+   ========================================================= */
+
 .contenido-post {
-    max-width: 750px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
+    font: italic;
     font-size: 1.08rem;
     line-height: 1.8;
+    color: var(--text);
+    text-align: justify;
 }
 
 .contenido-post p {
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 
-/* COMENTARIOS */
+/* Evita problemas con el float de la imagen */
+
+.post-detalle::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* =========================================================
+   COMENTARIOS
+   ========================================================= */
 
 .comentarios {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px;
-    background: var(--card);
-    border-radius: 20px;
+    max-width: 1000px;
+
+    margin: 70px auto 50px;
+    padding: 0;
+
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
+
+
+/* Título */
 
 .comentarios h2 {
-    margin-bottom: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin: 0 0 25px;
+    color: var(--text);
+    text-align: left;
 }
 
+
+/*COMENTARIO INDIVIDUAL*/
+
 .comentario {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--borde);
+    padding: 18px 0;
+    margin: 0;
+    border-top: 2px solid var(--borde);
+}
+
+.comentario:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .comentario-cabecera {
@@ -171,31 +244,53 @@ main > p {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+    text-align: left;
+}
+
+.comentario-cabecera strong {
+    color: var(--text);
+    text-align: left;
 }
 
 .comentario-cabecera small {
     color: var(--subtitulo);
+    font-size: 0.8rem;
 }
 
 .comentario p {
     margin: 0;
     line-height: 1.6;
+    color: var(--text);
 }
 
 .sin-comentarios {
     color: var(--subtitulo);
+    border-top: 1px solid var(--borde);
+    padding-top: 18px;
 }
 
 
-/* FORMULARIO */
+/*AGREGAR COMENTARIO*/
 
 .formulario-comentario {
-    margin-top: 45px;
+    margin-top: 40px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid var(--borde);
 }
 
 .formulario-comentario h3 {
-    margin-bottom: 25px;
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 2rem;
+    letter-spacing: 2px;
+
+    margin: 0 0 25px;
 }
+
+
+/* Campos */
 
 .campo {
     margin-bottom: 20px;
@@ -203,35 +298,78 @@ main > p {
 
 .campo label {
     display: block;
+
     margin-bottom: 8px;
+
     font-weight: 600;
+
+    color: var(--text);
 }
 
 .campo input,
 .campo textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 13px 15px;
     border: 1px solid var(--borde);
-    border-radius: 10px;
+    border-radius: 8px;
     background: var(--bg);
     color: var(--text);
     font-family: inherit;
+    font-size: 15px;
+    transition: 0.2s ease;
 }
 
 .campo textarea {
     resize: vertical;
+    min-height: 130px;
 }
 
 .campo input:focus,
 .campo textarea:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(176, 141, 87, 0.10);
 }
 
 
-/* VOLVER AL BLOG */
+/*BTN PUBLICAR*/
+
+.formulario-comentario .btn-post {
+    padding: 11px 20px;
+
+    background: var(--text);
+    color: var(--bg);
+
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+}
+
+.formulario-comentario .btn-post:hover {
+    background: var(--accent);
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/*VOLVER AL BLOG*/
 
 .volver-blog {
-    max-width: 900px;
+    max-width: 1000px;
+
     margin: 0 auto 60px;
+}
+
+.volver-blog .btn-post {
+    padding: 9px 16px;
+
+    border: 1px solid var(--text);
+
+    border-radius: 8px;
+}
+
+.volver-blog .btn-post:hover {
+    background: var(--text);
+    color: var(--bg);
 }
