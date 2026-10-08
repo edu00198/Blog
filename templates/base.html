@@ -7,6 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Eduardo De Turris{% endblock %}</title>
+    <script>
+        const temaGuardado = localStorage.getItem("tema");
+        if (temaGuardado === "light" || temaGuardado === "dark") {
+            document.documentElement.setAttribute("data-bs-theme", temaGuardado);
+        }
+    </script>
     <link rel="icon" type="image/png" href="{% static 'assets/imagen_frente.png' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -25,7 +31,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <button id="theme-toggle" class="btn btn-outline-secondary">
+                <button id="theme-toggle" class="btn btn-outline-secondary" type="button">
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
@@ -66,16 +72,27 @@
         const boton = document.getElementById("theme-toggle");
         const html = document.documentElement;
 
-        boton.addEventListener("click", () => {
+        function actualizarBotonTema() {
             const temaActual = html.getAttribute("data-bs-theme");
+            const temaSiguiente = temaActual === "dark" ? "light" : "dark";
+            const icono = temaSiguiente === "dark" ? "moon" : "sun";
 
-            if (temaActual === "dark") {
-                html.setAttribute("data-bs-theme", "light");
-                boton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            } else {
-                html.setAttribute("data-bs-theme", "dark");
-                boton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            }
+            boton.innerHTML = `<i class="fa-solid fa-${icono}"></i>`;
+            boton.setAttribute(
+                "aria-label",
+                `Cambiar a modo ${temaSiguiente === "dark" ? "oscuro" : "claro"}`
+            );
+        }
+
+        actualizarBotonTema();
+
+        boton.addEventListener("click", () => {
+            const temaNuevo = html.getAttribute("data-bs-theme") === "dark"
+                ? "light"
+                : "dark";
+            html.setAttribute("data-bs-theme", temaNuevo);
+            localStorage.setItem("tema", temaNuevo);
+            actualizarBotonTema();
         });
     </script>
 </body>

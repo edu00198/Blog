@@ -17,15 +17,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from blog import views as blog_views
+from django.urls import include, path
 from portfolio import views as portfolio_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', portfolio_views.portfolio, name='portfolio'),
-    path('blog/', blog_views.blog, name='blog'),
-    path('blog/<int:post_id>/', blog_views.detalle_post, name='detalle_post'),
+    path('blog/', include('blog.urls')),
 ]
 
 if settings.DEBUG:
