@@ -1,6 +1,9 @@
 from django.db import models
 
 
+MAX_COMENTARIO_LENGTH = 2000
+
+
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
     contenido = models.TextField()
@@ -14,7 +17,7 @@ class Post(models.Model):
 class Comentario(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comentarios")
     nombre = models.CharField(max_length=100)
-    contenido = models.TextField()
+    contenido = models.TextField(max_length=MAX_COMENTARIO_LENGTH)
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

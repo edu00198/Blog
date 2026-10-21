@@ -261,6 +261,7 @@ main > p {
     margin: 0;
     line-height: 1.6;
     color: var(--text);
+    overflow-wrap: anywhere;
 }
 
 .sin-comentarios {

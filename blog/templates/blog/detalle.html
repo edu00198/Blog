@@ -114,8 +114,15 @@
                         id="contenido"
                         name="contenido"
                         rows="5"
+                        maxlength="{{ max_comentario_length }}"
                         placeholder="Escribí tu comentario..."
                         required></textarea>
+                    <small>Máximo {{ max_comentario_length }} caracteres.</small>
+                    {% if error_comentario %}
+                        <p class="error-comentario" role="alert">
+                            {{ error_comentario }}
+                        </p>
+                    {% endif %}
                 </div>
 
                 <button type="submit" class="btn-post">
